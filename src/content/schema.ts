@@ -103,19 +103,14 @@ const REST_BETWEEN_SETS_SECONDS = 10;
 
 /** Estimated wall-clock time for one exercise, including setup and side switches. */
 export function estimateSeconds(ex: Exercise): number {
-  const d = ex.dosage;
+  return dosageSeconds(ex.dosage);
+}
+
+/** Wall-clock seconds for a dosage, including setup, side switches and rest between sets. */
+export function dosageSeconds(d: Dosage): number {
   const sides = d.perSide ? 2 : 1;
-  let work: number;
-  let sets = 1;
-  if (d.kind === 'hold') {
-    work = d.seconds;
-    sets = d.sets;
-  } else if (d.kind === 'reps') {
-    work = d.reps * d.secondsPerRep;
-    sets = d.sets;
-  } else {
-    work = d.seconds;
-  }
+  const sets = d.kind === 'timed' ? 1 : d.sets;
+  const work = d.kind === 'reps' ? d.reps * d.secondsPerRep : d.seconds;
   const total =
     work * sides * sets +
     (sides - 1) * sets * SWITCH_SIDE_SECONDS +
@@ -123,6 +118,13 @@ export function estimateSeconds(ex: Exercise): number {
     SETUP_SECONDS;
   return Math.round(total);
 }
+
+/** Same dosage with a different number of sets (timed dosages have no sets). */
+export function withSets(d: Dosage, sets: number): Dosage {
+  return d.kind === 'timed' ? d : { ...d, sets };
+}
+
+export const setsOf = (d: Dosage) => (d.kind === 'timed' ? 1 : d.sets);
 
 /** "30 s hold × 2 each side", "10 reps × 2", "45 s each side". */
 export function describeDosage(d: Dosage): string {

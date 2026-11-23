@@ -72,14 +72,18 @@ Check items off by changing `- [ ]` to `- [x]`. Phases match [gameplan.md](gamep
 
 ## Phase 4: Routine engine
 
-- [ ] Rule-based generator: profile + today's focus → ordered routine
-- [ ] Session structure: warm-up → stretch/release → activate → cool-down/breath
-- [ ] Filters: equipment, difficulty, contraindications, red-flag restrictions
-- [ ] Time budgeting to fit 10 / 15 / 20 / 25 minute sessions
-- [ ] Variety (avoid repeating the same routine every day)
-- [ ] Quick Fix mode (one area, 5 minutes)
-- [ ] Weekly plan built from the user's chosen frequency
-- [ ] Unit tests for the generator (each profile type gives a safe, sensible routine)
+- [x] Rule-based generator: profile + today's focus → ordered routine (`src/engine/`)
+- [x] Session structure: warm-up/mobilize → stretch/release → activate → breathe (always ends with a breathing reset)
+- [x] Filters: equipment, difficulty (by activity level), contraindications, red flags (→ breathing only), gentle mode for very sore or recent pain
+- [x] Scoring: sore areas, supporting areas (e.g. glutes for low back), desk/sitting, sports, tight mobility checks; plain-language "why" per exercise
+- [x] Time budgeting for 10 / 15 / 20 / 25 minute sessions (full sets first, trims sets before dropping exercises)
+- [x] Balance: every sore area gets its own stretch; repeats on one area are discounted
+- [x] Variety: deterministic per day, steers away from the previous session's exercises
+- [x] Quick Fix mode (one region, ~5 minutes, stays on topic)
+- [x] Weekly plan: sessions spread across the week, focus rotates when there are more than three sore areas
+- [x] Today screen: week strip, today's routine grouped by block; Quick Fix pages
+- [x] Unit tests, incl. 400 randomised profiles that must never break a safety rule
+- [ ] Use real session history for variety (needs Phase 5/7 data)
 
 ## Phase 5: Guided session player
 

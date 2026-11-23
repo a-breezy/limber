@@ -6,6 +6,7 @@ import { SettingsPage } from '../features/settings/SettingsPage';
 import { PoseGallery } from '../features/dev/PoseGallery';
 import { ExerciseLibrary } from '../features/dev/ExerciseLibrary';
 import { OnboardingPage } from '../features/onboarding/OnboardingPage';
+import { QuickFixPage } from '../features/routine/QuickFixPage';
 
 export const routes: RouteObject[] = [
   {
@@ -15,6 +16,7 @@ export const routes: RouteObject[] = [
       { index: true, element: <TodayPage /> },
       { path: 'progress', element: <ProgressPage /> },
       { path: 'settings', element: <SettingsPage /> },
+      { path: 'quick/:region', element: <QuickFixPage /> },
       { path: 'dev/poses', element: <PoseGallery /> },
       { path: 'dev/exercises', element: <ExerciseLibrary /> },
     ],
