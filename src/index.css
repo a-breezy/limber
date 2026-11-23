@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+/* Limber design tokens: energetic, high-contrast, warm. */
+@theme {
+  --color-brand: #ff4d2e; /* hot coral: primary actions */
+  --color-brand-ink: #ffffff; /* text on brand */
+  --color-zap: #d4ff3a; /* electric lime: highlights, streaks */
+  --color-zap-ink: #1a1220; /* text on zap: stays dark in both themes */
+  --color-sky: #2e7dff; /* secondary accent */
+  --color-bg: #fff8f2;
+  --color-surface: #ffffff;
+  --color-ink: #1a1220;
+  --color-muted: #6b6170;
+  --color-line: #eadfd6;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+
+  --radius-card: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #140f17;
+    --color-surface: #221a26;
+    --color-ink: #fbf5ef;
+    --color-muted: #ad9fb0;
+    --color-line: #3a2f3e;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
