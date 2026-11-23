@@ -80,6 +80,8 @@ src/
 
 ## 3. Core data model (first draft)
 
+> The live, validated schema is in `src/content/schema.ts` (exercises) and `src/domain/types.ts` (user data). The sketch below is the original draft.
+
 ```ts
 type BodyArea =
   | 'neck'

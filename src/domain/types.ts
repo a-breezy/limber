@@ -14,6 +14,50 @@ export const BODY_AREAS = [
 ] as const;
 export type BodyArea = (typeof BODY_AREAS)[number];
 
+/** How areas are grouped for people (body map, quick-fix buttons). */
+export const BODY_REGIONS = {
+  lowBack: { label: 'Low back', areas: ['lowBack'] },
+  thighs: {
+    label: 'Thighs',
+    areas: ['quads', 'hamstrings', 'hipFlexors', 'adductors', 'outerThigh'],
+  },
+  shoulders: { label: 'Shoulders', areas: ['shoulders'] },
+} as const satisfies Record<string, { label: string; areas: readonly BodyArea[] }>;
+export type BodyRegion = keyof typeof BODY_REGIONS;
+
+export const AREA_LABELS: Record<BodyArea, string> = {
+  lowBack: 'Low back',
+  quads: 'Front of thigh (quads)',
+  hamstrings: 'Back of thigh (hamstrings)',
+  hipFlexors: 'Hip flexors',
+  adductors: 'Inner thigh',
+  outerThigh: 'Outer thigh / IT band',
+  shoulders: 'Shoulders',
+};
+
+/**
+ * Areas an exercise can work. Superset of pain areas: e.g. glutes or the upper
+ * back are often worked *for* low-back or shoulder pain.
+ */
+export const TARGET_AREAS = [...BODY_AREAS, 'glutes', 'upperBack', 'core', 'chest'] as const;
+export type TargetArea = (typeof TARGET_AREAS)[number];
+
+export const TARGET_LABELS: Record<TargetArea, string> = {
+  ...AREA_LABELS,
+  glutes: 'Glutes',
+  upperBack: 'Upper back',
+  core: 'Core',
+  chest: 'Chest',
+};
+
+export const EQUIPMENT_LABELS: Record<Equipment, string> = {
+  mat: 'Mat',
+  blocks: 'Yoga blocks',
+  foamRoller: 'Foam roller',
+  band: 'Resistance band',
+  wall: 'Wall',
+};
+
 export const EQUIPMENT = ['mat', 'blocks', 'foamRoller', 'band', 'wall'] as const;
 export type Equipment = (typeof EQUIPMENT)[number];
 

@@ -44,12 +44,14 @@ Check items off by changing `- [ ]` to `- [x]`. Phases match [gameplan.md](gamep
 
 ## Phase 2b: Data model and exercise library
 
-- [ ] Define TypeScript types: `UserProfile`, `PainPoint`, `Exercise`, `Pose`, `Routine`, `Session`, `CheckIn`
-- [ ] Define the body-area taxonomy (MVP: low back; thighs → quads, hamstrings, hip flexors, adductors, IT band/outer thigh; shoulders)
-- [ ] Define the exercise schema: targets, phase (warm-up/mobilize/stretch/activate/release/breathe), difficulty, equipment, dosage, per-side flag, cues, common mistakes, contraindications, regressions/progressions, keyframes, sources
-- [ ] Write about 30 exercises for low back, thighs, and shoulders using mat, blocks, roller, band, wall
-- [ ] Self-review the content against reputable sources, with conservative dosages (no expert reviewer yet)
-- [ ] Validate the exercise data with a schema (Zod) plus a unit test (every exercise has valid poses)
+- [x] Define TypeScript types: `UserProfile`, `PainPoint`, `Exercise`, `Pose`, `Routine`, `Session`, `CheckIn` (`Routine` comes with the engine in Phase 4)
+- [x] Define the body-area taxonomy (MVP: low back; thighs → quads, hamstrings, hip flexors, adductors, IT band/outer thigh; shoulders) plus secondary targets (glutes, upper back, core, chest)
+- [x] Define the exercise schema (Zod): targets, phase (warm-up/mobilize/release/stretch/activate/breathe), difficulty, position, equipment, dosage, cues, mistakes, breath, contraindication tags, regressions/progressions, animation link, sources, review status
+- [x] Write 33 exercises for low back, thighs and shoulders using mat, blocks, roller, band, wall
+- [x] Self-review the content against cited sources, with conservative dosages (no expert reviewer yet; every exercise marked `self-reviewed`)
+- [x] Content tests: schema, unique ids, valid links, area/phase coverage, linked animations pass guardrails
+- [x] Dev `/dev/exercises` library browser
+- [ ] Animate the remaining 30 exercises (tracked in Phase 6; needs supine, prone, side-lying poses and roller/block props)
 
 ## Phase 3: Onboarding
 

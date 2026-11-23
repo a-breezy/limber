@@ -178,3 +178,8 @@ export const bandPullApart: Clip = {
 };
 
 export const SPIKE_CLIPS: Clip[] = [catCow, standingQuadStretch, bandPullApart];
+
+/** Every animated exercise, by clip id (exercises link here via `animationId`). */
+export const CLIPS: Readonly<Record<string, Clip>> = Object.fromEntries(
+  SPIKE_CLIPS.map((c) => [c.id, c]),
+);

@@ -4,6 +4,7 @@ import { TodayPage } from '../features/today/TodayPage';
 import { ProgressPage } from '../features/progress/ProgressPage';
 import { SettingsPage } from '../features/settings/SettingsPage';
 import { PoseGallery } from '../features/dev/PoseGallery';
+import { ExerciseLibrary } from '../features/dev/ExerciseLibrary';
 
 export const routes: RouteObject[] = [
   {
@@ -14,6 +15,7 @@ export const routes: RouteObject[] = [
       { path: 'progress', element: <ProgressPage /> },
       { path: 'settings', element: <SettingsPage /> },
       { path: 'dev/poses', element: <PoseGallery /> },
+      { path: 'dev/exercises', element: <ExerciseLibrary /> },
     ],
   },
 ];
