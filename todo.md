@@ -87,14 +87,19 @@ Check items off by changing `- [ ]` to `- [x]`. Phases match [gameplan.md](gamep
 
 ## Phase 5: Guided session player
 
-- [ ] Routine preview screen (list, total time, start button)
-- [ ] Exercise screen: animation, name, timer/reps, cues
-- [ ] Countdown, rep counter, "switch sides" transitions, rest periods
-- [ ] Breathing cue overlay (inhale/exhale pacing)
-- [ ] Pause / skip / back / swap ("too hard", "this hurts" → regression)
-- [ ] Screen Wake Lock so the phone doesn't sleep mid-session
-- [ ] Audio beeps (Web Audio API): countdown, switch sides, done; plus haptics (Vibration API)
-- [ ] Session complete screen plus post-session check-in
+- [x] Routine preview screen (list, total time, start) on Today and Quick Fix, plus a "Let's go" ready screen
+- [x] Exercise screen: animation (or steps when not animated yet), name, set/side, timer or rep counter, rotating form cues
+- [x] Countdown, paced rep counter, "switch sides" screens, rest between sets (timeline matches the planned time exactly)
+- [x] Breathing guide for breathing exercises (4 s in / 6 s out, pauses with the session)
+- [x] Pause / skip / previous / "Done" early / end session
+- [x] "Too hard / hurts" → easier swap (authored regression first, never something the profile rules out) or skip
+- [x] Screen Wake Lock for the whole session (re-acquired when you come back to the tab)
+- [x] Audio beeps (Web Audio: 3-2-1, go, done) with mute, plus vibration where supported
+- [x] Session complete screen plus check-in (how each sore area feels, too easy / just right / too hard); saved with completed, skipped and swapped exercises
+- [x] Tests: script timing, player state machine, swaps, a full session on a fake clock
+- [ ] Resume a session after reloading the page (currently restarts)
+- [ ] Sync the mannequin's movement speed to the rep pace (cat-cow loops slower than 6 s/rep)
+- [ ] Try it on a real phone: audio unlock, wake lock and vibration on iOS Safari / Android Chrome
 
 ## Phase 6: Animations
 

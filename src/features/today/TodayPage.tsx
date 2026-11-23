@@ -87,13 +87,14 @@ export function TodayPage() {
                   ? `Focus: ${plan.routine.focus.map((a) => AREA_LABELS[a].toLowerCase()).join(', ')}`
                   : 'All-round mobility'}
             </p>
-            <button
-              type="button"
-              disabled
-              className="mt-5 min-h-12 w-full rounded-full bg-white font-black text-brand disabled:opacity-70"
+            <Link
+              to="/session/today"
+              className="mt-5 flex min-h-12 w-full items-center justify-center rounded-full bg-white font-black text-brand"
             >
-              Start · guided player coming next
-            </button>
+              {plan.day.isSessionDay || plan.routine.kind === 'breathing'
+                ? 'Start'
+                : 'Start bonus session'}
+            </Link>
           </section>
 
           <RoutineList routine={plan.routine} />

@@ -7,6 +7,7 @@ import { PoseGallery } from '../features/dev/PoseGallery';
 import { ExerciseLibrary } from '../features/dev/ExerciseLibrary';
 import { OnboardingPage } from '../features/onboarding/OnboardingPage';
 import { QuickFixPage } from '../features/routine/QuickFixPage';
+import { SessionPage } from '../features/session/SessionPage';
 
 export const routes: RouteObject[] = [
   {
@@ -23,4 +24,6 @@ export const routes: RouteObject[] = [
   },
   // Full-screen flow, no bottom nav.
   { path: '/onboarding/:step?', element: <OnboardingPage /> },
+  { path: '/session/today', element: <SessionPage /> },
+  { path: '/session/quick/:region', element: <SessionPage /> },
 ];

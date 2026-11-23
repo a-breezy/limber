@@ -105,13 +105,23 @@ export interface UserProfile {
   equipment: Equipment[];
 }
 
+export type SessionRating = 'tooEasy' | 'justRight' | 'tooHard';
+
 export interface SessionRecord {
   id: string;
   startedAt: string; // ISO
   completedAt?: string; // ISO
+  kind: 'daily' | 'quickFix' | 'breathing';
   focus: BodyArea[];
+  /** As planned. */
   exerciseIds: string[];
+  /** Exercises with at least one finished set. */
+  completedIds: string[];
+  skippedIds: string[];
+  swaps: { from: string; to: string }[];
   plannedMinutes: number;
+  activeSeconds: number;
+  rating?: SessionRating;
 }
 
 export interface CheckIn {

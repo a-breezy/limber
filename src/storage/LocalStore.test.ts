@@ -18,6 +18,15 @@ const profile: UserProfile = {
   equipment: ['mat', 'blocks', 'foamRoller', 'band'],
 };
 
+const session = {
+  kind: 'daily' as const,
+  exerciseIds: [],
+  completedIds: [],
+  skippedIds: [],
+  swaps: [],
+  activeSeconds: 0,
+};
+
 describe('LocalStore', () => {
   it('saves and reads back a profile', async () => {
     const s = new LocalStore(`test-${crypto.randomUUID()}`);
@@ -31,15 +40,15 @@ describe('LocalStore', () => {
     await s.saveSession({
       id: 'a',
       startedAt: '2026-11-01T00:00:00Z',
+      ...session,
       focus: ['lowBack'],
-      exerciseIds: [],
       plannedMinutes: 10,
     });
     await s.saveSession({
       id: 'b',
       startedAt: '2026-11-02T00:00:00Z',
+      ...session,
       focus: ['quads'],
-      exerciseIds: [],
       plannedMinutes: 20,
     });
     expect((await s.listSessions()).map((x) => x.id)).toEqual(['b', 'a']);

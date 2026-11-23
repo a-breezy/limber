@@ -29,13 +29,12 @@ export function QuickFixPage() {
           {BODY_REGIONS[region as BodyRegion].label} · {minutesLabel(routine.totalSeconds)}
         </h1>
       </header>
-      <button
-        type="button"
-        disabled
-        className="min-h-12 w-full rounded-full bg-brand font-black text-brand-ink disabled:opacity-70"
+      <Link
+        to={`/session/quick/${region}`}
+        className="flex min-h-12 w-full items-center justify-center rounded-full bg-brand font-black text-brand-ink"
       >
-        Start · guided player coming next
-      </button>
+        Start
+      </Link>
       <RoutineList routine={routine} />
     </div>
   );
