@@ -31,14 +31,16 @@ Check items off by changing `- [ ]` to `- [x]`. Phases match [gameplan.md](gamep
 
 ## Phase 2a: Animation spike (do first; this is the riskiest part)
 
-- [ ] Skeleton definition: bone hierarchy and lengths
-- [ ] Forward kinematics: joint angles → joint positions (pure function + tests)
-- [ ] Joint-limit clamping and a floor constraint
-- [ ] SVG mannequin renderer: tapered, shaded capsule body parts, depth order for near and far limbs
-- [ ] Keyframe tweening with easing, looping, and left/right mirroring
-- [ ] Animate 3 test exercises: cat-cow (low back), standing quad stretch (thighs), band pull-apart (shoulders)
-- [ ] Dev `/poses` gallery page; screenshot-verify on a mobile viewport
-- [ ] **Go / no-go review with you**: is the mannequin convincing enough?
+- [x] Skeleton definition: bone hierarchy and lengths
+- [x] Forward kinematics: joint angles → joint positions (pure function + tests)
+- [x] Joint-limit clamping and a floor constraint
+- [x] Two-bone IK for planted hands/feet and hand-holds-ankle (bend direction fixed by pole, so no backward elbows or knees)
+- [x] `validateClip` guardrail: joint limits, floor penetration, reach, bone lengths (runs in tests and on the gallery)
+- [x] SVG mannequin renderer: tapered, shaded capsule body parts, depth order for near and far limbs
+- [x] Keyframe tweening with easing, looping, and left/right mirroring
+- [x] Animate 3 test exercises: cat-cow (low back), standing quad stretch (thighs), band pull-apart (shoulders)
+- [x] Dev `/poses` gallery page; screenshot-verify on a mobile viewport
+- [x] **Go / no-go review with you**: is the mannequin convincing enough? (go, 2026-11-23)
 
 ## Phase 2b: Data model and exercise library
 

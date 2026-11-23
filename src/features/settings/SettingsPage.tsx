@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { useProfileStore } from '../../app/useProfileStore';
 import { store } from '../../storage';
 
@@ -50,6 +51,13 @@ export function SettingsPage() {
           </p>
         )}
       </section>
+
+      <Link
+        to="/dev/poses"
+        className="flex min-h-12 items-center justify-between rounded-card border border-line bg-surface px-5 font-bold"
+      >
+        Pose gallery (dev) <span aria-hidden>→</span>
+      </Link>
 
       <p className="text-xs text-muted">
         Limber is a wellness tool, not medical advice. Stop any movement that causes sharp pain and
