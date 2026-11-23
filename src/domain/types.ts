@@ -2,6 +2,8 @@
  * Core domain types. These are the app's source of truth; the storage
  * layer and (later) the backend serialize these shapes.
  */
+import type { Contraindication } from '../content/contraindications';
+import type { MobilityTest, RedFlag, Trigger } from './profileOptions';
 
 export const BODY_AREAS = [
   'lowBack',
@@ -64,32 +66,41 @@ export type Equipment = (typeof EQUIPMENT)[number];
 export const SESSION_LENGTHS = [10, 15, 20, 25] as const;
 export type SessionLength = (typeof SESSION_LENGTHS)[number];
 
+export type Side = 'left' | 'right' | 'both';
+export type WorkType = 'desk' | 'standing' | 'active' | 'mixed';
+export type ActivityLevel = 1 | 2 | 3 | 4 | 5;
+export type MobilityLevel = 'limited' | 'average' | 'good';
+export type TimeOfDay = 'morning' | 'midday' | 'evening';
+
 export interface PainPoint {
   area: BodyArea;
-  side?: 'left' | 'right' | 'both';
+  side: Side;
   intensity: number; // 0–10
   duration: 'acute' | 'chronic'; // < 6 weeks vs longer
-  triggers: string[];
+  triggers: Trigger[];
 }
 
 export interface UserProfile {
   id: string;
   createdAt: string; // ISO
   updatedAt: string; // ISO
-  disclaimerAcceptedAt?: string;
+  disclaimerAcceptedAt: string;
   painPoints: PainPoint[];
-  redFlags: string[];
+  /** Warning signs that need a professional. Non-empty → breathing-only routines. */
+  redFlags: RedFlag[];
+  /** Conditions that rule out some exercises (from answers + pain triggers). */
+  conditions: Contraindication[];
   lifestyle: {
-    work: 'desk' | 'standing' | 'active' | 'mixed';
+    work: WorkType;
     sittingHours: number;
-    activityLevel: 1 | 2 | 3 | 4 | 5;
+    activityLevel: ActivityLevel;
     sports: string[];
   };
-  mobility: Record<string, 'limited' | 'average' | 'good'>;
+  mobility: Partial<Record<MobilityTest, MobilityLevel>>;
   schedule: {
     daysPerWeek: number;
     minutesPerSession: SessionLength;
-    preferredTime?: string; // "HH:MM"
+    preferredTime?: TimeOfDay;
   };
   equipment: Equipment[];
 }

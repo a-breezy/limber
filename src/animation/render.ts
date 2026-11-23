@@ -19,7 +19,8 @@ export interface Shape {
 
 type Pt = readonly [number, number];
 const SAMPLES = 28;
-const DEPTH_BIAS: Record<string, number> = { neck: 0.004, head: 0.008 };
+// The head always covers the neck (from the back too), and both beat the chest on ties.
+const DEPTH_BIAS: Record<string, number> = { neck: 0.004, head: 0.08 };
 
 /** Convex hull (Andrew's monotone chain). */
 export function convexHull(points: Pt[]): Pt[] {

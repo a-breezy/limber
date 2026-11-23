@@ -5,6 +5,7 @@ import { ProgressPage } from '../features/progress/ProgressPage';
 import { SettingsPage } from '../features/settings/SettingsPage';
 import { PoseGallery } from '../features/dev/PoseGallery';
 import { ExerciseLibrary } from '../features/dev/ExerciseLibrary';
+import { OnboardingPage } from '../features/onboarding/OnboardingPage';
 
 export const routes: RouteObject[] = [
   {
@@ -18,4 +19,6 @@ export const routes: RouteObject[] = [
       { path: 'dev/exercises', element: <ExerciseLibrary /> },
     ],
   },
+  // Full-screen flow, no bottom nav.
+  { path: '/onboarding/:step?', element: <OnboardingPage /> },
 ];

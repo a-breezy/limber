@@ -6,8 +6,12 @@ const profile: UserProfile = {
   id: 'me',
   createdAt: '2026-11-23T00:00:00.000Z',
   updatedAt: '2026-11-23T00:00:00.000Z',
-  painPoints: [{ area: 'lowBack', intensity: 5, duration: 'chronic', triggers: ['sitting'] }],
+  painPoints: [
+    { area: 'lowBack', side: 'both', intensity: 5, duration: 'chronic', triggers: ['sitting'] },
+  ],
+  disclaimerAcceptedAt: '2026-11-23T00:00:00.000Z',
   redFlags: [],
+  conditions: [],
   lifestyle: { work: 'desk', sittingHours: 8, activityLevel: 3, sports: [] },
   mobility: {},
   schedule: { daysPerWeek: 4, minutesPerSession: 15 },

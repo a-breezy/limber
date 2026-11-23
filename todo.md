@@ -55,16 +55,20 @@ Check items off by changing `- [ ]` to `- [x]`. Phases match [gameplan.md](gamep
 
 ## Phase 3: Onboarding
 
-- [ ] Welcome screen plus disclaimer acceptance
-- [ ] Tappable body map (front/back SVG) to select pain areas
-- [ ] Per-area details: intensity 0–10, acute vs chronic, triggers, time of day
-- [ ] Red-flag safety screen, with "see a professional" handling
-- [ ] Lifestyle questions (work type, sitting hours, activity, sports, sleep)
-- [ ] Mobility self-assessment (4–6 guided self-tests)
-- [ ] Goals and schedule (days per week, session length, time of day, equipment)
-- [ ] Profile summary screen ("Here's what we heard")
-- [ ] Save the profile; allow editing it later from Settings
-- [ ] Progress indicator plus back/skip on every step
+- [x] Welcome screen plus disclaimer acceptance
+- [x] Tappable body map (front/back mannequin) to select pain areas, plus a chip list for precise thigh areas
+- [x] Per-area details: intensity 0–10, acute vs chronic, triggers, time of day
+- [x] Red-flag safety screen, with "see a professional" handling
+- [x] Lifestyle questions (work type, sitting hours, activity, sports)
+- [ ] Sleep question (deferred: nothing uses it yet)
+- [x] Mobility self-assessment (4–6 guided self-tests)
+- [x] Goals and schedule (days per week, session length, time of day, equipment)
+- [x] Profile summary screen ("Here's what we heard")
+- [x] Save the profile; allow editing it later from Settings
+- [x] Progress indicator plus back/skip on every step
+- [x] Draft answers saved on the device as you go; deep links can’t skip required steps
+- [x] Pain triggers map to exercise restrictions (e.g. low back worse bending forward → flexion-sensitive)
+- [x] Tests: profile mapping, step logic, full click-through flow, red-flag routing
 
 ## Phase 4: Routine engine
 

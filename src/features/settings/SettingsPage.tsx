@@ -1,11 +1,25 @@
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { useProfileStore } from '../../app/useProfileStore';
+import { draftFromProfile, useDraft } from '../onboarding/draft';
 import { store } from '../../storage';
 
 export function SettingsPage() {
   const reset = useProfileStore((s) => s.reset);
+  const profile = useProfileStore((s) => s.profile);
+  const loadDraft = useDraft((s) => s.load);
+  const resetDraft = useDraft((s) => s.reset);
+  const navigate = useNavigate();
   const [message, setMessage] = useState<string>();
+
+  function editProfile() {
+    if (profile) {
+      loadDraft(draftFromProfile(profile));
+      navigate('/onboarding/summary');
+    } else {
+      navigate('/onboarding/welcome');
+    }
+  }
 
   async function exportData() {
     const data = await store.exportAll();
@@ -21,12 +35,29 @@ export function SettingsPage() {
   async function deleteData() {
     if (!window.confirm('Delete all Limber data on this device? This cannot be undone.')) return;
     await reset();
+    resetDraft();
     setMessage('All data deleted.');
   }
 
   return (
     <div className="space-y-4">
       <h1 className="font-display text-3xl font-black">Settings</h1>
+
+      <section className="space-y-3 rounded-card border border-line bg-surface p-5">
+        <h2 className="font-bold">Your profile</h2>
+        <p className="text-sm text-muted">
+          {profile
+            ? 'Pain points changed, or new gear? Update your answers any time.'
+            : 'You haven’t set up your profile yet.'}
+        </p>
+        <button
+          type="button"
+          onClick={editProfile}
+          className="min-h-12 w-full rounded-full bg-brand font-bold text-brand-ink"
+        >
+          {profile ? 'Edit my profile' : 'Set up my profile'}
+        </button>
+      </section>
 
       <section className="space-y-3 rounded-card border border-line bg-surface p-5">
         <h2 className="font-bold">Your data</h2>
